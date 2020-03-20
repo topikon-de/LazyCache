@@ -15,7 +15,9 @@ namespace Microsoft.Extensions.DependencyInjection
             if (services == null) throw new ArgumentNullException(nameof(services));
 
             services.AddOptions();
-            services.TryAdd(ServiceDescriptor.Singleton<IMemoryCache, MemoryCache>());
+            //services.TryAdd(ServiceDescriptor.Singleton<IMemoryCache, MemoryCache>());
+            services.TryAdd(
+                ServiceDescriptor.Singleton<Func<IMemoryCache>>(s => () => new MemoryCache(new MemoryCacheOptions())));
             services.TryAdd(ServiceDescriptor.Singleton<ICacheProvider, MemoryCacheProvider>());
 
             services.TryAdd(ServiceDescriptor.Singleton<IAppCache, CachingService>(serviceProvider => 

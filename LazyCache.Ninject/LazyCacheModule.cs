@@ -23,7 +23,7 @@ namespace LazyCache
         public override void Load()
         {
             Bind<IOptions<MemoryCacheOptions>>().ToConstant(Options.Create(new MemoryCacheOptions()));
-            Bind<IMemoryCache>().To<MemoryCache>().InSingletonScope();
+            Bind<Func<IMemoryCache>>().ToMethod((s) => () => new MemoryCache(new MemoryCacheOptions())).InSingletonScope();
             Bind<ICacheProvider>().To<MemoryCacheProvider>().InSingletonScope();
 
             if (implementationFactory == null)

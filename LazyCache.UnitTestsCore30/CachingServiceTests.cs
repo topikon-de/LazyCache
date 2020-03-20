@@ -9,7 +9,7 @@ namespace LazyCache.UnitTestsCore30
     {
         private static CachingService BuildCache()
         {
-            return new CachingService(new MemoryCacheProvider(new MemoryCache(new MemoryCacheOptions())));
+            return new CachingService(new MemoryCacheProvider(() => new MemoryCache(new MemoryCacheOptions())));
         }
 
         private IAppCache sut;
