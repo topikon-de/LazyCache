@@ -4,7 +4,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>LazyCache</RootNamespace>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <LazyCacheAspNetCoreVersion Condition="'$(LazyCacheAspNetCoreVersion)' == ''">1.0.0</LazyCacheAspNetCoreVersion>
     <LazyCacheAspNetCoreVersionSuffix Condition="'$(LazyCacheAspNetCoreVersionSuffix)' == ''"></LazyCacheAspNetCoreVersionSuffix>
     <Version>$(LazyCacheAspNetCoreVersion)$(LazyCacheAspNetCoreVersionSuffix)</Version>
